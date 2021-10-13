@@ -50,7 +50,7 @@ def to_df(lst):
 
 
 def main():
-    today = date.today()
+    today = date.today().replace(day=1)
     ystd = (today - dt.timedelta(days=1)).strftime("%Y-%m-%d")
     driver = Chrome("C:\Program Files\JetBrains\PyCharm Community Edition 2021.1\chrome_driver\chromedriver.exe", "https://www.bankofchina.com/sourcedb/whpj/")
     driver = driver_ops(driver, ystd, "美元")
@@ -68,8 +68,5 @@ def main():
     return df
 
 
-df = main()
-
-
-
-
+if __name__ == "__main__":
+    main()
